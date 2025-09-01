@@ -13,8 +13,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod dirs;
-
-slint::include_modules!();
+mod ui;
 
 fn main() {
     env_logger::init();
@@ -31,9 +30,5 @@ fn main() {
     #[cfg(windows)]
     log::info!("Elysium v{} (Windows)", env!("CARGO_PKG_VERSION"));
 
-    let app = App::new().unwrap();
-
-    slint::set_xdg_app_id("moe.spencer.Elysium").unwrap();
-
-    app.run().unwrap();
+    ui::run();
 }

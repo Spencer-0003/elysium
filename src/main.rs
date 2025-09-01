@@ -28,4 +28,10 @@ fn main() {
 
     #[cfg(windows)]
     log::info!("Elysium v{} (Windows)", env!("CARGO_PKG_VERSION"));
+
+    let app = App::new().unwrap();
+
+    slint::set_xdg_app_id("moe.spencer.Elysium").unwrap();
+
+    app.run().unwrap();
 }
